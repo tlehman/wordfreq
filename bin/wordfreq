@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+require 'wordfreq'
+require 'input_handler'
+require 'hash_patch'
+
+input_handler = InputHandler.new(ARGV, STDIN)
+delim = (ARGV.member? '-c') ? (:chars) : (:words)
+wf = Wordfreq.calculate(input_handler.content, delim)
+STDOUT.puts wf.to_table
