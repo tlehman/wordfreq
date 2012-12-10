@@ -4,7 +4,7 @@ class InputHandler
   end
 
   def content
-    @content.gsub(/[\n\#]/, '')
+    @content.gsub(/[\n\#]/, '') rescue ""
   end
 
   private
