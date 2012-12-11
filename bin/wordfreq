@@ -1,9 +1,15 @@
 #!/usr/bin/env ruby
 require 'wordfreq'
 require 'input_handler'
-require 'hash_patch'
 
 input_handler = InputHandler.new(ARGV, STDIN)
 delim = (ARGV.member? '-c') ? (:chars) : (:words)
-wf = Wordfreq.calculate(input_handler.content, delim)
-STDOUT.puts wf.to_table
+
+wf = Wordfreq.calculate(input_handler.content, delim).sort_by { |k,v| -v.to_i }
+max_len = wf.first.first.length rescue 0
+width = max_len + 2
+
+wf.each do |pair|
+  STDOUT.write(pair[0].ljust(width) + pair[1].to_s)
+  STDOUT.write("\n")
+end
