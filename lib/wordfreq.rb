@@ -1,5 +1,4 @@
 require "wordfreq/version"
-require "string_patch"
 
 module Wordfreq
   DELIMITERS = {:words => /\b/, :chars => //}
@@ -11,7 +10,9 @@ module Wordfreq
     lower_content = content.downcase
     
     tokens = if delimiter == :words
-               content.split(delim).select {|s| s.wordlike? }
+               content.split(delim).select do |s|
+                 s.length > 0 && s =~ /^[a-z]+$/  # wordlike?
+               end
              else
                content.split(delim)
              end
