@@ -1,8 +1,16 @@
 #!/usr/bin/env ruby
 require 'wordfreq'
 
+if (ARGV.member? '-c')
+  delim = :chars
+  ARGV.delete_if { |a| a == '-c' }
+else
+  delim = :words
+end
+
+# ARGF is awesome, it reads files whose names were passed in, 
+# or it reads from STDIN
 content = ARGF.read
-delim = (ARGV.member? '-c') ? (:chars) : (:words)
 
 wf = Wordfreq.calculate(content, delim).sort_by { |k,v| -v.to_i }
 max_len = wf.first.first.length rescue 0

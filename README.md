@@ -72,7 +72,6 @@ Or install it yourself as:
 
 ## TODO
   
- - remove space from character count
  - profile program to find bottlenecks
 
 ## Contributing

@@ -14,7 +14,7 @@ module Wordfreq
                  s.length > 0 && s =~ /^[a-z]+$/  # wordlike?
                end
              else
-               content.split(delim)
+               content.split(delim).reject { |c| c =~ /\s/ }
              end
 
     tokens.group_by{|s| s }.each do |k,v| 
