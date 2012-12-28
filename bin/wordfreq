@@ -9,6 +9,10 @@ max_len = wf.first.first.length rescue 0
 width = max_len + 2
 
 
-for pair in wf
-  $stdout.puts(pair[0].ljust(width + 10) + pair[1].to_s)
+wf.each do |pair|
+  begin
+    $stdout.puts(pair[0].ljust(width + 10) + pair[1].to_s)
+  rescue Errno::EPIPE
+    break
+  end
 end

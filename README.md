@@ -73,7 +73,6 @@ Or install it yourself as:
 ## TODO
   
  - remove space from character count
- - fix Errno::EPIPE exception when piping output into other programs
  - profile program to find bottlenecks
 
 ## Contributing
