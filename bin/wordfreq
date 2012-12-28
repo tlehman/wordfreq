@@ -1,15 +1,14 @@
 #!/usr/bin/env ruby
 require 'wordfreq'
-require 'input_handler'
 
-input_handler = InputHandler.new(ARGV, STDIN)
+content = ARGF.read
 delim = (ARGV.member? '-c') ? (:chars) : (:words)
 
-wf = Wordfreq.calculate(input_handler.content, delim).sort_by { |k,v| -v.to_i }
+wf = Wordfreq.calculate(content, delim).sort_by { |k,v| -v.to_i }
 max_len = wf.first.first.length rescue 0
 width = max_len + 2
 
-wf.each do |pair|
-  STDOUT.write(pair[0].ljust(width) + pair[1].to_s)
-  STDOUT.write("\n")
+
+for pair in wf
+  $stdout.puts(pair[0].ljust(width + 10) + pair[1].to_s)
 end
