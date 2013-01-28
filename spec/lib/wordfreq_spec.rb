@@ -11,10 +11,10 @@ describe Wordfreq do
   end
 
   it "calculates the frequency of characters" do
-    Wordfreq::calculate(content, :chars).should == {"i"=>11, "t"=>9, " "=>17,
-                                                    "s"=>5, "n"=>5, "a"=>4,
-                                                    "w"=>1, "h"=>2, "l"=>1,
-                                                    "e"=>1, "o"=>4, "r"=>1,
+    Wordfreq::calculate(content, :chars).should == {"i"=>11, "t"=>9, "s"=>5, 
+                                                    "n"=>5, "a"=>4, "l"=>1,
+                                                    "w"=>1, "h"=>2, "r"=>1,  
+                                                    "e"=>1, "o"=>4, 
                                                     "u"=>1, "d"=>2}
   end
 

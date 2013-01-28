@@ -10,11 +10,11 @@ module Wordfreq
     lower_content = content.downcase
     
     tokens = if delimiter == :words
-               content.split(delim).select do |s|
+               lower_content.split(delim).select do |s|
                  s.length > 0 && s =~ /^[a-z]+$/  # wordlike?
                end
              else
-               content.split(delim).reject { |c| c =~ /\s/ }
+               lower_content.split(delim).reject { |c| c =~ /\s/ }
              end
 
     tokens.group_by{|s| s }.each do |k,v| 

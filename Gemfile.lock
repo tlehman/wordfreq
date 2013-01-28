@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    wordfreq (0.1.4)
+    wordfreq (0.1.5)
 
 GEM
   remote: https://rubygems.org/
